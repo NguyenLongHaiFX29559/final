@@ -7,7 +7,7 @@ document.querySelector("button").addEventListener("click", function (event) {
     document.querySelector("#personal-info-email").style.display = "none";
     console.log("done");
   } else {
-    console.log("kill");
+    promt("Wrong Email, please try again")
   }
 });
 
