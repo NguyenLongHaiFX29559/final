@@ -1,58 +1,51 @@
 document.querySelector("button").addEventListener("click", function (event) {
   event.preventDefault();
-  const correctEmail = "hainlFX29559@funix.edu.vn";
+  const correctEmail = "hainlfx29559@funix.edu.vn";
   const enteredEmail = document.getElementById("email").value.toLowerCase();
   if (enteredEmail === correctEmail) {
     document.querySelector("#personal-info").style.display = "flex";
     document.querySelector("#personal-info-email").style.display = "none";
-    console.log("done");
+    console.log("correct");
   } else {
-    console.log("kill");
+    console.log("wrong");
   }
 });
 
 const mainInfo = document.querySelectorAll(".main-info");
+const showLessBtn = document.querySelector(".show-less-btn");
 
 for (let i = 0; i < mainInfo.length; i++) {
-  mainInfo[i].addEventListener("mouseover", function () {
-    if (
-      !this.querySelector(".job-history").style.display ||
-      this.querySelector(".job-history").style.display === "none"
-    ) {
-      this.querySelector(".show-more-btn").style.display = "flex";
+  //
+  const main = mainInfo[i];
+  const showMoreBtn = mainInfo[i].querySelector(".show-more-btn");
+  const showLessBtn = mainInfo[i].querySelector(".show-less-btn");
+  const jobHistory = mainInfo[i].querySelector(".job-history");
+  const infoHeader = mainInfo[i].querySelector(".info-header");
+  //
+  main.addEventListener("mouseover", function () {
+    if (!jobHistory.style.display || jobHistory.style.display === "none") {
+      showMoreBtn.style.display = "flex";
     } else {
-      this.querySelector(".show-less-btn").style.display = "flex";
+      showLessBtn.style.display = "flex";
     }
   });
 
-  mainInfo[i].addEventListener("mouseout", function () {
-    this.querySelector(".show-more-btn").style.display = "none";
-    this.querySelector(".show-less-btn").style.display = "none";
+  main.addEventListener("mouseout", function () {
+    showMoreBtn.style.display = "none";
+    showLessBtn.style.display = "none";
   });
 
-  mainInfo[i]
-    .querySelector(".show-more-btn")
-    .addEventListener("click", function () {
-      console.log("show more button clicked!");
-      const parent = this.closest(".main-info");
-      parent.querySelector(".job-history").style.display = "grid";
-      parent.querySelector(".info-header").style.height = "13rem";
-      parent.style.height = "64rem";
+  main.querySelector(".show-more-btn").addEventListener("click", function () {
+    console.log("show more button clicked!");
+    jobHistory.style.display = "grid";
+    infoHeader.style.height = "13rem";
+    main.style.height = "64rem";
+  });
 
-      this.style.display = "none";
-      parent.querySelector(".show-less-btn").style.display = "flex";
-    });
-
-  mainInfo[i]
-    .querySelector(".show-less-btn")
-    .addEventListener("click", function () {
-      console.log("show less button clicked!");
-      const parent = this.closest(".main-info");
-      parent.querySelector(".job-history").style.display = "none";
-      parent.querySelector(".info-header").style.height = "13rem";
-      parent.style.height = "20rem";
-
-      this.style.display = "none";
-      parent.querySelector(".show-more-btn").style.display = "flex";
-    });
+  main.querySelector(".show-less-btn").addEventListener("click", function () {
+    console.log("show less button clicked!");
+    jobHistory.style.display = "none";
+    infoHeader.style.height = "13rem";
+    main.style.height = "18rem";
+  });
 }

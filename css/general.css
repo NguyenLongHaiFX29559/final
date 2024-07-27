@@ -229,7 +229,7 @@
 
   .grid-3cols-2rows {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
     gap: 4.8rem;
     /* justify-content: center; */
   }
@@ -438,7 +438,7 @@
 
   .grid-3cols-2rows {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
+    /* grid-template-rows: repeat(6, 1fr); */
   }
   .main-info {
     margin: 0;
