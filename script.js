@@ -2,8 +2,6 @@ document.querySelector("button").addEventListener("click", function (event) {
   event.preventDefault();
   const correctEmail = "hainlfx29559@funix.edu.vn";
   const enteredEmail = document.getElementById("email").value.toLowerCase();
-  const correctEmail = "hainlfx29559@funix.edu.vn";
-  const enteredEmail = document.getElementById("email").value.toLowerCase();
   if (enteredEmail === correctEmail) {
     document.querySelector("#personal-info").style.display = "flex";
     document.querySelector("#personal-info-email").style.display = "none";
